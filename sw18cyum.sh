@@ -131,5 +131,12 @@ export ORAENV_ASK=YES
 dbshut \$ORACLE_HOME
 EOF
 
+cat > /home/oracle/scripts/start_lsnrctl.sh <<EOF
+#!/bin/bash
+export ORACLE_SID=jellybear18c
+export ORACLE_HOME=/u01/app/oracle/product/18.0.0/dbhome_1/
+/u01/app/oracle/product/18.0.0/dbhome_1/bin/lsnrctl start
+EOF
+
 chown -R oracle:oinstall /home/oracle/scripts
 chmod u+x /home/oracle/scripts/*.sh
