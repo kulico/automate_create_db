@@ -90,7 +90,7 @@ cat > /home/oracle/scripts/setEnv.sh <<EOF
 export TMP=/tmp
 export TMPDIR=\$TMP
 
-export ORACLE_HOSTNAME=automateJK
+export ORACLE_HOSTNAME=jellybearatm
 export ORACLE_UNQNAME=jellybear18c
 export ORACLE_BASE=/u01/app/oracle
 export ORACLE_HOME=\$ORACLE_BASE/product/18.0.0/dbhome_1

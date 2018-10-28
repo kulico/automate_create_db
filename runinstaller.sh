@@ -2,7 +2,7 @@
  -waitforcompletion -silent \
     -responseFile /u01/app/oracle/product/18.0.0/dbhome_1/install/response/db_install.rsp \
     oracle.install.option=INSTALL_DB_SWONLY \
-    ORACLE_HOSTNAME=automateJK \
+    ORACLE_HOSTNAME=jellybearatm \
     UNIX_GROUP_NAME=oinstall \
     INVENTORY_LOCATION=/u01/app/oraInventory \
     SELECTED_LANGUAGES=en \
