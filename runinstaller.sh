@@ -1,13 +1,13 @@
 /u01/app/oracle/product/18.0.0/dbhome_1/runInstaller -ignorePrereq \
  -waitforcompletion -silent \
-    -responseFile ${ORACLE_HOME}/install/response/db_install.rsp \
+    -responseFile /u01/app/oracle/product/18.0.0/dbhome_1/install/response/db_install.rsp \
     oracle.install.option=INSTALL_DB_SWONLY \
-    ORACLE_HOSTNAME=${ORACLE_HOSTNAME} \
+    ORACLE_HOSTNAME=automateJK \
     UNIX_GROUP_NAME=oinstall \
-    INVENTORY_LOCATION=${ORA_INVENTORY} \
+    INVENTORY_LOCATION=/u01/app/oraInventory \
     SELECTED_LANGUAGES=en \
-    ORACLE_HOME=${ORACLE_HOME} \
-    ORACLE_BASE=${ORACLE_BASE} \
+    ORACLE_HOME=/u01/app/oracle/product/18.0.0/dbhome_1/ \
+    ORACLE_BASE=/u01/app/oracle/ \
     oracle.install.db.InstallEdition=EE \
     oracle.install.db.OSDBA_GROUP=dba \
     oracle.install.db.OSBACKUPDBA_GROUP=dba \
