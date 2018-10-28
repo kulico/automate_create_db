@@ -59,6 +59,8 @@ groupadd -g 54322 dba
 groupadd -g 54323 oper
 useradd -u 54321 -g oinstall -G dba,oper
 
+echo oracle:welcome1 | /usr/sbin/chpasswd
+
 #04
 echo "# This file controls the state of SELinux on the system.
 # SELINUX= can take one of these three values:
