@@ -23,7 +23,7 @@ echo "#
 # Multiple entries with the same $ORACLE_SID are not allowed.
 #
 #
-jellybear18c:/u01/app/oracle/product/18.0.0/dbhome_1:Y" >/etc/oratab
+jellybeardb:/u01/app/oracle/product/18.0.0/dbhome_1:Y" >/etc/oratab
 
 
 mv /home/git_scripts/dbora.sh /etc/init.d/
