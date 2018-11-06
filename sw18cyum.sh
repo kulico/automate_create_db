@@ -1,4 +1,7 @@
 #01
+linux_host=$(cat /etc/hostname)
+echo $linux_host
+
 yum install -y oracle-database-preinstall-18c
 yum update -y
 
@@ -86,18 +89,38 @@ chown -R oracle:oinstall /u01 /u02
 chmod -R 775 /u01 /u02
 
 mkdir /home/oracle/scripts
+mv /home/git_scripts/count_db_name.sh /home/oracle/scripts/count_db_name.sh
+mv /home/git_scripts/count_db_name.txt /home/oracle/scripts/count_db_name.txt
+
+#cat > /home/oracle/scripts/count_db_name.sh <<EOF
+#!/bin/sh
+#file="/home/oracle/scripts/count_db_name.txt"
+#i=$(cat $file)
+#echo Old counter number is $i
+#i=$((i+1))
+#echo New counter number is $i
+#echo $i >/home/oracle/scripts/count_db_name.txt
+#EOF
+
+#cat > /home/oracle/scripts/count_db_name.txt <<EOF
+#0
+#EOF
+
 
 cat > /home/oracle/scripts/setEnv.sh <<EOF
 # Oracle Settings
 export TMP=/tmp
 export TMPDIR=\$TMP
 
-export ORACLE_HOSTNAME=jellybearatm
-export ORACLE_UNQNAME=jellybeardb
+linux_host=$(cat /etc/hostname)
+echo $linux_host
+
+export ORACLE_HOSTNAME=$linux_host
+export ORACLE_UNQNAME=jelly
 export ORACLE_BASE=/u01/app/oracle
 export ORACLE_HOME=\$ORACLE_BASE/product/18.0.0/dbhome_1
 export ORA_INVENTORY=/u01/app/oraInventory
-export ORACLE_SID=jellybeardb
+export ORACLE_SID=jelly
 export PDB_NAME=pdb1
 export DATA_DIR=/u02/data
 
@@ -135,10 +158,11 @@ EOF
 
 cat > /home/oracle/scripts/start_lsnrctl.sh <<EOF
 #!/bin/bash
-export ORACLE_SID=jellybeardb
+export ORACLE_SID=jelly
 export ORACLE_HOME=/u01/app/oracle/product/18.0.0/dbhome_1/
 /u01/app/oracle/product/18.0.0/dbhome_1/bin/lsnrctl start
 EOF
 
+
 chown -R oracle:oinstall /home/oracle/scripts
-chmod u+x /home/oracle/scripts/*.sh
+chmod u+x /home/oracle/scripts/*

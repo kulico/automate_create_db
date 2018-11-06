@@ -1,8 +1,11 @@
+linux_host=$(cat /etc/hostname)
+echo $linux_host
+
 /u01/app/oracle/product/18.0.0/dbhome_1/runInstaller -ignorePrereq \
  -waitforcompletion -silent \
     -responseFile /u01/app/oracle/product/18.0.0/dbhome_1/install/response/db_install.rsp \
     oracle.install.option=INSTALL_DB_SWONLY \
-    ORACLE_HOSTNAME=jellybearatm \
+    ORACLE_HOSTNAME=$linux_host \
     UNIX_GROUP_NAME=oinstall \
     INVENTORY_LOCATION=/u01/app/oraInventory \
     SELECTED_LANGUAGES=en \
