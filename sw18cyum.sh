@@ -106,33 +106,6 @@ mv /home/git_scripts/count_db_name.txt /home/oracle/scripts/count_db_name.txt
 #0
 #EOF
 
-
-cat > /home/oracle/scripts/setEnv.sh <<EOF
-# Oracle Settings
-export TMP=/tmp
-export TMPDIR=\$TMP
-
-linux_host=$(cat /etc/hostname)
-echo $linux_host
-
-export ORACLE_HOSTNAME=$linux_host
-export ORACLE_UNQNAME=jelly
-export ORACLE_BASE=/u01/app/oracle
-export ORACLE_HOME=\$ORACLE_BASE/product/18.0.0/dbhome_1
-export ORA_INVENTORY=/u01/app/oraInventory
-export ORACLE_SID=jelly
-export PDB_NAME=pdb1
-export DATA_DIR=/u02/data
-
-export PATH=/usr/sbin:/usr/local/bin:\$PATH
-export PATH=\$ORACLE_HOME/bin:\$PATH
-
-export LD_LIBRARY_PATH=\$ORACLE_HOME/lib:/lib:/usr/lib
-export CLASSPATH=\$ORACLE_HOME/jlib:\$ORACLE_HOME/rdbms/jlib
-EOF
-
-echo ". /home/oracle/scripts/setEnv.sh" >> /home/oracle/.bash_profile
-
 #06
 cat > /home/oracle/scripts/start_all.sh <<EOF
 #!/bin/bash
@@ -154,13 +127,6 @@ export ORAENV_ASK=NO
 export ORAENV_ASK=YES
 
 dbshut \$ORACLE_HOME
-EOF
-
-cat > /home/oracle/scripts/start_lsnrctl.sh <<EOF
-#!/bin/bash
-export ORACLE_SID=jelly
-export ORACLE_HOME=/u01/app/oracle/product/18.0.0/dbhome_1/
-/u01/app/oracle/product/18.0.0/dbhome_1/bin/lsnrctl start
 EOF
 
 
